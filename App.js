@@ -7,6 +7,14 @@ import PersonEditScreen from './screens/PersonEditScreen';
 import PeopleViewScreen from './screens/PeopleViewScreen';
 
 export default function App() {
+  /* const [loading, setLoading] = useState(false);
+  const [product, setProduct] = useState({});
+  const [productList, setProductList] = useState([]); */
+  const [loading, setLoading] = useState(false);
+  const [product, setProduct] = useState({});
+  const [productList, setProductList] = useState([]);
+  
+  
   return (
     <View style={styles.container}>
       {/* <HelpScreen/>
