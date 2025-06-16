@@ -81,6 +81,56 @@ export default function PersonEditScreen(props) {
             setPerson({ ...person, phone: text });
           }}
         />
+        <TextInput
+          label="name"
+          value={person.street}
+          mode="outlined"
+          keyboardType="numeric"
+          style={{ marginBottom: 16 }}
+          onChangeText={(text) => {
+            setPerson({ ...person, street: text });
+          }}
+        />
+        <TextInput
+          label="name"
+          value={person.city}
+          mode="outlined"
+          keyboardType="numeric"
+          style={{ marginBottom: 16 }}
+          onChangeText={(text) => {
+            setPerson({ ...person, city: text });
+          }}
+        />
+        <TextInput
+          label="name"
+          value={person.state}
+          mode="outlined"
+          keyboardType="numeric"
+          style={{ marginBottom: 16 }}
+          onChangeText={(text) => {
+            setPerson({ ...person, state: text });
+          }}
+        />
+        <TextInput
+          label="name"
+          value={person.zip}
+          mode="outlined"
+          keyboardType="numeric"
+          style={{ marginBottom: 16 }}
+          onChangeText={(text) => {
+            setPerson({ ...person, zip: text });
+          }}
+        />
+        <TextInput
+          label="name"
+          value={person.country}
+          mode="outlined"
+          keyboardType="numeric"
+          style={{ marginBottom: 16 }}
+          onChangeText={(text) => {
+            setPerson({ ...person, country: text });
+          }}
+        />
       </ScrollView>
       <View
         style={{
