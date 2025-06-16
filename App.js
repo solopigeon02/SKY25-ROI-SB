@@ -1,11 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, } from 'react-native';
-import { useState } from 'react';
-import HelpScreen from './screens/HelpScreen';
-import HomeScreen from './screens/HomeScreen';
-import PersonViewScreen from './screens/PersonViewScreen';
-import PersonEditScreen from './screens/PersonEditScreen';
-import PeopleViewScreen from './screens/PeopleViewScreen';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import {NavigationContainer} from "@react-navigation/native";
+import HelpScreen from "./screens/HelpScreen";
+import HomeScreen from "./screens/HomeScreen";
+import PersonViewScreen from "./screens/PersonViewScreen";
+import PersonEditScreen from "./screens/PersonEditScreen";
+import PeopleViewScreen from "./screens/PeopleViewScreen";
+import PeopleNavigator from "./navigation/PeopleNavigator";
 
 export default function App() {
   /* const [loading, setLoading] = useState(false);
@@ -14,14 +16,13 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState({});
   const [productList, setProductList] = useState([]);
-  
-  
+
   return (
     <View style={styles.container}>
-     
-      <PeopleViewScreen/>
-      
-      
+      <NavigationContainer>
+        <PeopleNavigator />
+      </NavigationContainer>
+
       <StatusBar style="auto" />
     </View>
   );
@@ -30,7 +31,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     /* alignItems: 'center',
     justifyContent: 'center', */
   },

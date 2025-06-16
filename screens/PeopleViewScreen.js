@@ -6,36 +6,43 @@ import { ScrollView } from "react-native-web";
 
 export default function PeopleViewScreen(props) {
   const [people, setPeople] = useState([]);
+  const [offline, setOffline] = useState(false);
 
   async function fetchData() {
     try {
-      const data = await fetchPeople();
+      const data = await fetchPeople(setOffline);
       setPeople(data);
-    } catch (error) {}
+    } catch (err) {
+      console.error(err);
+      setOffline(true);
+    }
   }
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  /* if (!people) {
-    return <Text>loading...</Text>;
-  } else {
-    return <Text>{people[0].name}</Text>;
-  } */
-
-  //let a = [1, 2, 3, 4];
+  function showAddPerson() {
+    props.navigation.navigate("PersonEdit", { id: -1 });
+  }
+  function showEditPerson(id) {
+    props.navigation.navigate("PersonEdit", { id: id });
+  }
+  function showViewPerson(id) {
+    props.navigation.navigate("PersonView", { id: id });
+  }
 
   return (
     <Surface style={{ flex: 1, padding: 16 }} mode="flat" elevation={1}>
-      <Text variant="headlineLarge"
+      <Text
+        variant="headlineLarge"
         style={{ marginHorizontal: 10, marginBottom: 24, fontWeight: "bold" }}
       >
         Staff Directory
       </Text>
       <ScrollView>
         {people.map((person) => (
-          <View 
+          <View
             key={person.id}
             style={{
               flex: 1,
@@ -43,7 +50,7 @@ export default function PeopleViewScreen(props) {
               marginHorizontal: 10,
               marginTop: 10,
               alignItems: "center",
-              borderRadius: 5
+              borderRadius: 5,
             }}
           >
             {/* Avatar */}
@@ -54,8 +61,8 @@ export default function PeopleViewScreen(props) {
                 paddingLeft: 10,
               }}
             >
-              <TouchableOpacity>
-                <Avatar.Icon size={48} icon="folder-open-outline"/>
+              <TouchableOpacity onPress={() => showViewPerson(person.id)}>
+                <Avatar.Icon size={48} icon="folder-open-outline" />
               </TouchableOpacity>
             </View>
             {/* Main Content */}
@@ -77,19 +84,29 @@ export default function PeopleViewScreen(props) {
                   style={{
                     flex: 1,
                     alignItems: "center",
-                    justifyContent: "flex-end"
+                    justifyContent: "flex-end",
                   }}
                 >
-                  <IconButton icon="pencil" mode="contained" size={24} onPress={()=>{}}/>
+                  <IconButton
+                    icon="pencil"
+                    mode="contained"
+                    size={24}
+                    onPress={() => showEditPerson(person.id)}
+                  />
                 </View>
                 <View
                   style={{
                     flex: 1,
                     alignItems: "center",
-                    justifyContent: "flex-start"
+                    justifyContent: "flex-start",
                   }}
                 >
-                  <IconButton icon="delete" mode="contained" size={24} onPress={()=>{}}/>
+                  <IconButton
+                    icon="delete"
+                    mode="contained"
+                    size={24}
+                    onPress={() => {}}
+                  />
                 </View>
               </View>
             </View>
