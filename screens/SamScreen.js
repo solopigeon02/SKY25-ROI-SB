@@ -1,16 +1,16 @@
 import { View, Text, StyleSheet, Button } from "react-native";
 
-export default function HomeScreen(props) {
+export default function SamScreen(props) {
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#50de97",
+        backgroundColor: "#fff",
       }}
     >
-      <Text>HomeScreen</Text>
+      <Text>SamScreeen</Text>
     </View>
   );
 }
